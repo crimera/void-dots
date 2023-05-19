@@ -1,0 +1,16 @@
+[theme]
+name = "native"
+
+[[block]]
+block = "time"
+[block.format]
+full = "%I:%M %p"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "backlight"
+
+[[block]]
+block = "battery"

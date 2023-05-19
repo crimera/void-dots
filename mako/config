@@ -1,0 +1,26 @@
+font=Sauce Code Pro 10
+layer=overlay
+anchor=top-right
+height=500
+border-size=1
+default-timeout=1000
+
+background-color=#22092bcc
+text-color=#625769
+
+[urgency=low]
+border-color=#A63E4A
+text-color=#6F8D91
+
+[urgency=normal]
+border-color=#625769
+text-color=#637984
+default-timeout=10000
+ignore-timeout=1
+
+[urgency=high]
+font=Sauce Code Pro 16
+border-color=#625769
+text-color=#6F8D91
+default-timeout=0
+ignore-timeout=1
