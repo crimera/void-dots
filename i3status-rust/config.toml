@@ -7,6 +7,12 @@ block = "time"
 full = "%I:%M %p"
 
 [[block]]
+block = "cpu"
+
+[[block]]
+block = "memory"
+
+[[block]]
 block = "sound"
 
 [[block]]
