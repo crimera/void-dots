@@ -15,7 +15,7 @@ format = "{signal_strength}"
 
 [[block]]
 block = "cpu"
-format = " {barchart} {utilization} {frequency}"
+format = " {frequency}({utilization})"
 
 [[block]]
 block = "memory"
