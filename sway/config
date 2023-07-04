@@ -3,7 +3,7 @@ include "$HOME/.cache/wal/colors-sway"
 # class                 border    backgr.   text      indicator child_border
 client.focused          $color2   $color2   $color1   $color2   $color2
 client.unfocused        $color0   $color0   $color0   $color0   $color0
-client.focused_inactive $color3   $color3   $color1   $color3   $color3
+client.focused_inactive $color0   $color0   $color0   $color0   $color0
 client.urgent           $color15  $color15  $color7   $color15  $color15
 client.placeholder      $color3   $color3   $color7   $color3   $color3
 
@@ -31,9 +31,11 @@ set $term foot
 set $menu wofi --show drun
 
 exec autotiling -w 1 3 5 7 9
+exec wl-paste -t text --watch clipman store --no-persist
 exec_always mako
-#exec_always blueman-applet
-exec pipewire & pipewire-pulse
+exec blueman-applet
+exec_always pipewire & pipewire-pulse
+exec poweralertd
 
 ### Output configuration
 #
@@ -238,9 +240,9 @@ bar {
     status_command i3status-rs
 
     colors {
-        background $background
-	focused_workspace $background $background $foreground
-        inactive_workspace $background $background #5c5c5c
+        background $backgroundcc
+	    focused_workspace $backgroundcc $backgroundcc $foreground
+        inactive_workspace $backgroundcc $backgroundcc #5c5c5c
     }
 }
 
@@ -249,5 +251,11 @@ bar {
 #
 default_border pixel 3
 # gaps inner 10
+
+#
+# FLoating:
+#
+for_window [window_type="dialog"] floating enable
+for_window [window_role="dialog"] floating enable
 
 include /etc/sway/config.d/*

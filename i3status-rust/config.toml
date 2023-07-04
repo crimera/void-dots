@@ -29,10 +29,5 @@ block = "sound"
 block = "backlight"
 
 [[block]]
-block = "bluetooth"
-label = ""
-mac = "1C:52:16:97:D1:ED"
-
-[[block]]
 block = "battery"
 format = " {percentage}"
