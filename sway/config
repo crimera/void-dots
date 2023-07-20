@@ -32,10 +32,11 @@ set $menu wofi --show drun
 
 exec autotiling -w 1 3 5 7 9
 exec wl-paste -t text --watch clipman store --no-persist
-exec_always mako
+exec gammastep -m wayland -l 18.339398:121.550298
 exec blueman-applet
-exec_always pipewire & pipewire-pulse
 exec poweralertd
+exec_always mako
+exec_always pipewire & pipewire-pulse
 
 ### Output configuration
 #
@@ -87,6 +88,12 @@ input type:touchpad {
     # Start a terminal
     bindsym $mod+Return exec $term
 
+    # Quick term
+    # bindsym $mod+b exec i3-quickterm shell
+
+    # Show clipboard history
+    bindsym $mod+p exec clipman pick -t wofi
+
     # Kill focused window
     bindsym $mod+Shift+q kill
 
@@ -137,7 +144,7 @@ input type:touchpad {
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
+    # bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
 #
 # Workspaces:
@@ -191,6 +198,9 @@ input type:touchpad {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+    # Sticky window
+    bindsym $mod+Shift+Up sticky toggle
 #
 # Scratchpad:
 #
