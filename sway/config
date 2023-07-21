@@ -28,7 +28,7 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu wofi --show drun
+set $menu wofi -C ~/.cache/wal/colors --show drun -b -G -n 
 
 exec autotiling -w 1 3 5 7 9
 exec wl-paste -t text --watch clipman store --no-persist
@@ -259,6 +259,7 @@ bar {
 #
 # Display:
 #
+default_floating_border pixel 3
 default_border pixel 3
 # gaps inner 10
 

@@ -1,0 +1,29 @@
+* {
+	font-family: "FiraCode", monospace;
+}
+
+window {
+  background-color: --wofi-color0;
+}
+
+#outer-box {
+  padding: 10px;
+}
+
+#input {
+    background-color: --wofi-color0;
+    color: --wofi-color15;
+    border-radius: 0px;
+    border-color: --wofi-color0;
+    border: none;
+    margin: 10px;
+}
+
+#entry {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#entry:selected {
+    background-color: --wofi-color1;
+}
