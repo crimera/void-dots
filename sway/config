@@ -28,15 +28,16 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu wofi -C ~/.cache/wal/colors --show drun -b -G -n 
+set $menu wofi -C ~/.cache/wal/colors --show drun -b -G -n -I
 
 exec autotiling -w 1 3 5 7 9
 exec wl-paste -t text --watch clipman store --no-persist
-exec gammastep -m wayland -l 18.339398:121.550298
 exec blueman-applet
 exec poweralertd
+
 exec_always mako
 exec_always pipewire & pipewire-pulse
+exec_always gammastep -m wayland -l 18.339398:121.550298
 
 ### Output configuration
 #
@@ -92,7 +93,7 @@ input type:touchpad {
     # bindsym $mod+b exec i3-quickterm shell
 
     # Show clipboard history
-    bindsym $mod+p exec clipman pick -t wofi
+    bindsym $mod+c exec clipman pick -t wofi
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -110,6 +111,10 @@ input type:touchpad {
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
+    # Screenshot
+    bindsym $mod+p       exec grimshot --notify save window 
+    bindsym $mod+Shift+p exec grimshot --notify save area
+
     # Backlight
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
@@ -121,7 +126,8 @@ input type:touchpad {
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec /home/fauna/bin/swayoff
 #
 # Moving around:
 #
@@ -248,7 +254,6 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command i3status-rs
-
     colors {
         background $backgroundcc
 	    focused_workspace $backgroundcc $backgroundcc $foreground
@@ -268,5 +273,10 @@ default_border pixel 3
 #
 for_window [window_type="dialog"] floating enable
 for_window [window_role="dialog"] floating enable
+
+#
+# Swaynag
+#
+
 
 include /etc/sway/config.d/*
