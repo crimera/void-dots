@@ -42,7 +42,7 @@ exec_always gammastep -m wayland -l 18.339398:121.550298
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output eDP-1 bg /home/fauna/Downloads/wallhaven-ymdvjg_2160x1440.png center
+output eDP-1 bg /home/fauna/Downloads/wallhaven-ymdvjg_2160x1440.png center 
 #
 # Example configuration:
 #
@@ -128,6 +128,7 @@ input type:touchpad {
     # Exit sway (logs you out of your Wayland session)
     # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
     bindsym $mod+Shift+e exec /home/fauna/bin/swayoff
+    bindsym $mod+Shift+r exec /home/fauna/bin/swayoff reboot
 #
 # Moving around:
 #
