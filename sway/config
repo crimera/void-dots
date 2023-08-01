@@ -32,12 +32,10 @@ set $menu wofi -C ~/.cache/wal/colors --show drun -b -G -n -I
 
 exec autotiling -w 1 3 5 7 9
 exec wl-paste -t text --watch clipman store --no-persist
-exec blueman-applet
 exec poweralertd
-
-exec_always mako
-exec_always pipewire & pipewire-pulse
-exec_always gammastep -m wayland -l 18.339398:121.550298
+exec pipewire
+exec gammastep -m wayland -l 18.339398:121.550298
+exec mako
 
 ### Output configuration
 #
@@ -267,6 +265,7 @@ bar {
 #
 default_floating_border pixel 3
 default_border pixel 3
+smart_borders on
 # gaps inner 10
 
 #
