@@ -23,9 +23,6 @@ format_mem = "{mem_used;M}/{mem_total}({mem_total_used_percents})"
 clickable = false
 
 [[block]]
-block = "sound"
-
-[[block]]
 block = "backlight"
 
 [[block]]
