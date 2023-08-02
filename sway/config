@@ -33,7 +33,7 @@ set $menu wofi -C ~/.cache/wal/colors --show drun -b -G -n -I
 exec autotiling -w 1 3 5 7 9
 exec wl-paste -t text --watch clipman store --no-persist
 exec poweralertd
-exec pipewire
+exec pipewire & pipewire-pulse & wireplumber
 exec gammastep -m wayland -l 18.339398:121.550298
 exec mako
 
@@ -78,6 +78,12 @@ input type:touchpad {
     tap enabled
     natural_scroll enabled
     dwt enabled
+}
+
+input "type:keyboard" {
+    xkb_layout us,ph
+    xkb_variant ,nodeadkeys
+    xkb_options grp:alt_shift_toggle
 }
 
 ### Key bindings
