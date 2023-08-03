@@ -29,12 +29,13 @@ set $term foot
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi -C ~/.cache/wal/colors --show drun -b -G -n -I
+set $lock swaylock -f --image /home/fauna/Downloads/wallhaven-ymdvjg_2160x1440.png
 
 exec autotiling -w 1 3 5 7 9
 exec wl-paste -t text --watch clipman store --no-persist
 exec poweralertd
 exec pipewire & pipewire-pulse & wireplumber
-exec gammastep -m wayland -l 18.339398:121.550298
+exec gammastep -r -m wayland -l 18.339398:121.550298
 exec mako
 
 ### Output configuration
@@ -53,9 +54,9 @@ output HDMI-A-1 resolution 2160x1440 position 2160,0
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+         timeout 300 $lock \
+         timeout 400 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep $lock
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -80,10 +81,10 @@ input type:touchpad {
     dwt enabled
 }
 
-input "type:keyboard" {
+input type:keyboard {
     xkb_layout us
-    xkb_variant ,nodeadkeys
-    xkb_options grp:alt_shift_toggle
+    repeat_delay 400
+    repeat_rate 25
 }
 
 ### Key bindings
