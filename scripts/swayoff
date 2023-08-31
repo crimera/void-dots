@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [ "$1" = "reboot" ]; then
+    choice="$(printf "yes" | wofi --show dmenu -p "Reboot System" -n)"
+    if [ "$choice" = "yes" ]; then
+        loginctl reboot
+    fi
+    exit
+fi
+
+
+choice="$(printf "yes\nexit sway" | wofi --show dmenu -p "Shutdown" -n)"
+if [ "$choice" = "yes" ]; then
+    loginctl poweroff
+elif [ "$choice" = "exit sway" ]; then
+    swaymsg exit
+fi
